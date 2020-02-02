@@ -16,4 +16,8 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+/**
+ * Renders view that can be found
+ * inside the layouts/views/ folder.
+ */
+Route.on('/').render('index')
