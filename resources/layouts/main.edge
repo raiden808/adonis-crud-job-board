@@ -14,13 +14,16 @@
     <body>
         <header>
             <a href="/">  </a>
+            <nav>
+                <ul>
+                    <li href="/">Jobs</li>
+                    <li href="/login">Login</li>
+                    <li href="/signup">Sign up</li>
+                </ul>
+            </nav>
         </header>
-        <nav>
-            <ul>
-                <li href="/">Jobs</li>
-                <li href="/login">Login</li>
-                <li href="/signup">Sign up</li>
-            </ul>
-        </nav>
+        <div class="container">
+            @!section('content')
+        </div>
     </body>
 </html>
