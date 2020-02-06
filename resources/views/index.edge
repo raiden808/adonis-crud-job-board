@@ -9,12 +9,17 @@
 @endsection
 
 @section('content')
-<h1>All Jobs</h1>
-<div class="job-container">
-  <div class="blank"></div>
-  <div class="job-info">
-    <h3>Job Title</h3>
-    <p>Future job description can go here.</p>
-  </div>
-</div>
+  <h1>All Jobs</h1>
+
+  {{--Gets data from controller/Jobcontroller.js --}}
+  @each(job in jobs)
+    <div class="job-container">
+      <div class="blank"></div>
+      <div class="job-info">
+        <h3><a href="{{ job.link }}">{{ job.title }}</a></h3>
+        <p>Future job description can go here.</p>
+      </div>
+    </div>
+  @endeach
+
 @endsection
