@@ -20,4 +20,9 @@ const Route = use('Route')
  * Renders view that can be found
  * inside the layouts/views/ folder.
  */
-Route.on('/').render('index')
+//Route.on('/').render('index')
+
+/**
+ * Renders view via Controller/JobController
+ */
+Route.get('/','JobController.home')
