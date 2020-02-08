@@ -25,4 +25,8 @@ const Route = use('Route')
 /**
  * Renders view via Controller/JobController
  */
-Route.get('/','JobController.home')
+Route.get('/','JobController.home');
+
+Route.on('/signup').render('auth.signup');
+
+Route.on('/login').render('auth.login')
