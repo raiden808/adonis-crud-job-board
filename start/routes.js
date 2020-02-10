@@ -29,4 +29,9 @@ Route.get('/','JobController.home');
 
 Route.on('/signup').render('auth.signup');
 
+/**
+ * CreateUser - validates data before UserController.create
+ */
+Route.post('/signup', 'UserController.create').validator('CreateUser');
+
 Route.on('/login').render('auth.login')
