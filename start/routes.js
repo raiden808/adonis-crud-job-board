@@ -34,4 +34,17 @@ Route.on('/signup').render('auth.signup');
  */
 Route.post('/signup', 'UserController.create').validator('CreateUser');
 
-Route.on('/login').render('auth.login')
+
+/**
+ * Redirects to public/view/auth/login.edge
+ */
+Route.on('/login').render('auth.login');
+
+/**
+ * Logout session
+ */
+Route.get('/logout', async({auth, response}) =>{
+    await auth.logout();
+    return response.redirect('/');
+})
+
