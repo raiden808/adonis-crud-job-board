@@ -41,6 +41,11 @@ Route.post('/signup', 'UserController.create').validator('CreateUser');
 Route.on('/login').render('auth.login');
 
 /**
+ * When user tries to submit on the login page.
+ */
+Route.post('/login', 'UserController.login').validator('LoginUser');
+
+/**
  * Logout session
  */
 Route.get('/logout', async({auth, response}) =>{
