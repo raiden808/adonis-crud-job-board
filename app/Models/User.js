@@ -22,6 +22,13 @@ class User extends Model {
   }
 
   /**
+   * Important to render user specific jobs on JobController.js
+   */
+  jobs(){
+    return this.hasMany('App/Models/Job')
+  }
+
+  /**
    * A relationship on tokens is required for auth to
    * work. Since features like `refreshTokens` or
    * `rememberToken` will be saved inside the
