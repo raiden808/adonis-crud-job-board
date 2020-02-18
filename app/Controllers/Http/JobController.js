@@ -39,25 +39,23 @@ class JobController {
      * Post specific jon on specific user
      */
     async create({request, response, session, auth}){
-
         const job = request.all();
 
         const posted = await auth.user.jobs().create({
             title: job.title,
             link: job.link,
             description: job.description
-        })
+        });
 
-        session.flash({ message: 'You job has been posted' });
-        return response.redirect('back')
+        session.flash({ message: 'Your job has been posted!' });
+        return response.redirect('back');
     }
 
-    async delete({response, session, params}){
-        const job = await job.find(params.id);
+    async delete({ response, session, params}) {
+        const job = await Job.find(params.id);
 
         await job.delete();
-
-        session.flash({ message: 'Your job has been removed' });
+        session.flash({ message: 'Your job has been removed'});
         return response.redirect('back');
     }
 
