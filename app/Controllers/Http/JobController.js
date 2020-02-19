@@ -64,16 +64,16 @@ class JobController {
         return view.render('edit', { job:job });
     }
 
-    async udpate({ response, request, session, params}){
+    async update ({ response, request, session, params }) {
         const job = await Job.find(params.id);
 
         job.title = request.all().title;
-        job.link  = request.all().link;
+        job.link = request.all().link;
         job.description = request.all().description;
 
         await job.save();
 
-        session.flash({ message: 'Your job has been updated.' });
+        session.flash({ message: 'Your job has been updated. '});
         return response.redirect('/post-a-job');
     }
 }

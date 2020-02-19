@@ -55,13 +55,20 @@ Route.get('/logout', async({auth, response}) =>{
 
 /**
  * Post job routes
+ * returns all job under a specific user
  */
 Route.get('/post-a-job', 'JobController.userIndex');
 
 /**
- * Job CRUD Operation
+ * Group similar routes together
  */
-Route.get('/post-a-job/delete/:id', 'JobController.delete');
-Route.get('/post-a-job/edit/:id', 'JobController.edit'); 
-Route.post('/post-a-job/update/:id', 'JobController.update').validator('CreateJob');
+Route.group(() => {
+    Route.get('/delete/:id', 'JobController.delete');
+    Route.get('/edit/:id', 'JobController.edit');
+    Route.post('/update/:id', 'JobController.update').validator('CreateJob');
+}).prefix('/post-a-job');
+
+/**
+ * Post a job under a specific user.
+ */
 Route.post('/post-a-job', 'JobController.create').validator('CreateJob');
